@@ -36,7 +36,8 @@ void noDescending(int n){
         }
     }
 }
- 
+
+
 //主函数
 int main(){
     //数据初始化
