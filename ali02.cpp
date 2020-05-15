@@ -12,8 +12,6 @@ int main(){
         for(int i = 0;i < n;i++){
             scanf("%d",&v[i]);
         }
-        
-        
     }
     system("pause");
     return 0;
