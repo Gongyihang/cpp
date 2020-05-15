@@ -13,6 +13,7 @@ int main(){
             scanf("%d",&v[i]);
         }
         
+        
     }
     system("pause");
     return 0;
