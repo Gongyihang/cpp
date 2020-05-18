@@ -144,8 +144,6 @@ int main(){
     for(int i = 0;i < m;i++){
         printf("%d ", averagem[i]);
     }
-
-
     system("pause");
     return 0;
 }
