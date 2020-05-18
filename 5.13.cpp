@@ -5,6 +5,7 @@
 // #include <cmath>
 // using namespace std;
 
+
 // int main(){
 //     float a,b,c = 0;
 //     scanf("%f %f",&a,&b);
