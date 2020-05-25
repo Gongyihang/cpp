@@ -15,7 +15,6 @@
 //     return 0;
 // }
 
-
 // #include <algorithm>
 // #include <cmath>
 // #include <iostream>
@@ -146,12 +145,9 @@ int main(){
     return 0;
 }
 
-// 3 5
+// 5 5
 // 100 90 80 70 60
 // 90 80 70 80 80
 // 80 60 70 60 60
 // 100 100 100 100 100
 // 90 90 80 80 70
-
-
-
