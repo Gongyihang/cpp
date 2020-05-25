@@ -15,7 +15,6 @@
 #include<iostream>
 using namespace std;
 
-
 const int MAXN=100;
 int l,k,b[MAXN][MAXN];
  
