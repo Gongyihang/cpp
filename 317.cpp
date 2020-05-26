@@ -15,10 +15,8 @@
 #include<iostream>
 using namespace std;
 
-
 const int MAXN=100;
 int l,k,b[MAXN][MAXN];
- 
 //处理函数
 void noDescending(int n){
     for (int i = n-1; i >=1 ; i--) {
