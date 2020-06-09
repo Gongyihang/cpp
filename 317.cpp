@@ -11,57 +11,58 @@
 //(1)b[i][1]表示第i个数值本身
 //(2)b[i][2]表示从i位置到达n的最长不下降序列长度
 //(3)b[i][3]表示从i位置开始最长不下降序列的下一个位置，若b[i][3]=0表示后面没有连续项
- 
-#include<iostream>
+
+#include <iostream>
 using namespace std;
 
-const int MAXN=100;
-int l,k,b[MAXN][MAXN];
+const int MAXN = 100;
+int l, k, b[MAXN][MAXN];
 //处理函数
-void noDescending(int n){
-    for (int i = n-1; i >=1 ; i--) {
-        l=0;
-        k=0;
-        for (int j = i+1; j <=n ; ++j) {
-            if((b[j][1]>=b[i][1])&&(b[j][2]>l)){
-                l=b[j][2];
-                k=j;
+void noDescending(int n)
+{
+    for (int i = n - 1; i >= 1; i--) {
+        l = 0;
+        k = 0;
+        for (int j = i + 1; j <= n; ++j) {
+            if ((b[j][1] >= b[i][1]) && (b[j][2] > l)) {
+                l = b[j][2];
+                k = j;
             }
         }
-        if(l>0){
-            b[i][2]=l+1;
-            b[i][3]=k;
+        if (l > 0) {
+            b[i][2] = l + 1;
+            b[i][3] = k;
         }
     }
 }
 
 //主函数
-int main(){
+int main()
+{
     //数据初始化
     int n;
-    cin>>n;
-    for (int i = 1; i <=n ; ++i) {
-        cin>>b[i][1];
-        b[i][2]=1;
-        b[i][3]=0;
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> b[i][1];
+        b[i][2] = 1;
+        b[i][3] = 0;
     }
- 
+
     //调用函数
     noDescending(n);
-    k=1;
- 
+    k = 1;
+
     //输出数据
     //求最长不下降序列的起始位置
-    for (int j =1; j <=n ; ++j) {
-        if(b[j][2]>b[k][2]){
-            k=j;
+    for (int j = 1; j <= n; ++j) {
+        if (b[j][2] > b[k][2]) {
+            k = j;
         }
     }
-    cout<<b[k][2]<<endl;
+    cout << b[k][2] << endl;
     //输出最长不下降序列
-    while(k!=0){
-        cout<<b[k][1]<<" ";
-        k=b[k][3];
+    while (k != 0) {
+        cout << b[k][1] << " ";
+        k = b[k][3];
     }
 }
- 
