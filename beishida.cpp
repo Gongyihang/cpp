@@ -14,9 +14,9 @@ int main()
     int qu, re = 0; //qu为商、re为余数
     bool flag = false; //商是否出现非0位，是为true,商一直为0，则一直为false，一直continue
     for (int i = 0; i < (int)s.size(); i++) {
-        re = re * 10 + s[i] - '0';//核心
+        re = re * 10 + s[i] - '0'; //核心
         qu = re / d;
-        re = re % d;             
+        re = re % d;
         if ((qu == 0) && !flag) {
             continue;
         }
