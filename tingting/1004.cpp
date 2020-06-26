@@ -15,7 +15,7 @@ int main()
     }
     int max = 0;
     int min = 0;
-    for (int i = 0; i <n; i++) {
+    for (int i = 0; i < n; i++) {
         if (a[i].score > a[max].score)
            {
                max= i;
