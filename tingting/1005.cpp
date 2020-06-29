@@ -5,7 +5,8 @@
 #include <vector>
 using namespace std;
 
-bool cmp(int a, int b){
+bool cmp(int a, int b)
+{
     return a > b;
 }
 
@@ -42,7 +43,7 @@ int main()
         }
     }
 
-    sort(res.begin(),res.end(),cmp);
+    sort(res.begin(), res.end(), cmp);
 
     for (int i = 0; i < (int)res.size(); i++) {
         cout << res[i];
