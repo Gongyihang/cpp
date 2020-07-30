@@ -31,8 +31,6 @@ int main()
         for (auto t : st)
             cnt[t]++;
     }
-
-    
     while (m--) {
         cin >> s;
         // cout << s;
