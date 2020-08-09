@@ -11,7 +11,4 @@ int main(){
     cout << v << endl;
     system("pause");
     return 0; 
-
-
-    
 }
