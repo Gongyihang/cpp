@@ -10,5 +10,8 @@ int main(){
     v++;
     cout << v << endl;
     system("pause");
-    return 0;
+    return 0; 
+
+
+    
 }
