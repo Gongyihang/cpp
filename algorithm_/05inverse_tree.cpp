@@ -34,10 +34,3 @@ public:
         return root;
     }
 };
-
-
-int main(){
-    
-    system("pause");
-    return 0;
-}

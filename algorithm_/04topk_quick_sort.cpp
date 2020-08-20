@@ -93,12 +93,38 @@ class Solution3{
 };
 
 
+class Solution4{
+    public:
+    vector<int> large_k(vector<int>& arr, int k){
+        quick_sort(arr, 0, arr.size() - 1, k);
+        return vector<int>(arr.begin(), arr.begin() + k);
+    }
+
+    void quick_sort(vector<int>& arr, int l, int r, int k){
+        if(l >= r) return ;
+        int i = l - 1, j = r + 1, x = arr[(l + r) >> 1];
+        while (i < j)
+        {
+            do i++;while(arr[i] > x);
+            do j--;while(arr[j] < x);
+            if(i < j){
+                swap(arr[i], arr[j]);
+            }
+        }
+        if(j - l + 1 >= k){
+        quick_sort(arr, l, j, k);
+        }else{
+        quick_sort(arr, j + 1, r, k - (j - l + 1));
+        }
+    }
+};
+
 int main(){
     vector<int> arr = {40, 8, 7, 20, 5, 6, 7, 8, 9, 1};
     vector<int> res;
-    Solution3 s2;
-    s2.quick_sort(arr, 0, arr.size() - 1);
-    for(int i = 0;i < (int)arr.size();i++){
+    Solution4 s2;
+    s2.quick_sort(arr, 0, arr.size() - 1, 4);
+    for(int i = 0;i < 4;i++){
         cout << arr[i] << endl;
     }
     system("pause");
