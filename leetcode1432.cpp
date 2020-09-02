@@ -9,36 +9,42 @@ using namespace std;
 class Solution {
 public:
     int maxDiff(int num) {
-        if(num >= 0 && num <= 9)  return 9;
-        string init = to_string(num);
-        string nmin = init;
-        string nmax = init;
-        int length = init.size();
-        char t = init[0];
-        for(int i = 0; i < length;i++){
-            if(init[i] != '9') {
-                t = init[i];
-            }
-            if(i < length - 1 && nmax[i + 1] == t){
-                nmax[i + 1] = '9';
-            }
-            if(nmin[i] == init[0]){
-                nmin[i] = '1';
+        if(num >= 0 && num <= 9) return 8;
+        //找第一个不为9的数字，将其替换为9
+        string s = to_string(num);
+        string sm = s;
+        int i = 0;
+        while(s[i] == '9') i++;
+        if(s[i] != '9' && i < (int)sm.size()){
+            char ch = s[i];
+            s[i++] = '9';
+            for(int k = i;k < (int)s.size(); k++) s[k] = s[k] == ch ? '9' : s[k];
+        } 
+        //首位如果不为1，则将其换成1
+        i = 0;
+        if(sm[0] != '1'){ 
+            char ch = sm[0];
+            sm[0] = '1';
+            for(int k = 1;k < (int)sm.size(); k++) sm[k] = sm[k] == ch ? '1' : sm[k];
+        }
+        //首位如果为1，则将后面不为0且不为1(很重要)的数字换成0
+        else{
+            i++;
+            while(sm[i] == '0' || sm[i] == '1') i++;
+            if(i < (int)sm.size()){
+            char ch = sm[i];
+            sm[i] = '0';
+            for(int k = i;k < (int)sm.size(); k++) sm[k] = sm[k] == ch ? '0' : sm[k];
             }
         }
-        stringstream ss1,ss2;
-        int resmax,resmin;
-        ss1 << nmax;
-        ss1 >> resmax;
-        ss2 << nmin;
-        ss2 >> resmin;
-        return resmax - resmin;
+
+        return stoi(s) - stoi(sm);
     }
 };
 
 int main(){
     Solution s;
-    int res = s.maxDiff(9288);
+    int res = s.maxDiff(111);
     cout << res << endl;
     system("pause");
     return 0;
