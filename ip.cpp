@@ -1,0 +1,57 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <math.h>
+using namespace std;
+
+
+
+class Solution {
+public:
+    string validIPAddress(string IP) {
+        string s = IP;
+        vector<string> v;
+        string t = "";
+        int i;
+        for(i = 0; i < (int)s.size(); i++){
+            if(s[i] != '.' && s[i] != ':'){
+                t += s[i];
+            }else if(s[i] == '.' || s[i] == ':'){
+                v.push_back(t);
+                t = "";
+            }
+        }
+        v.push_back(t);
+        if(v.size() == 4){
+            for(string st : v){
+                if((int)st.size() == 0 || (int)st.size() > 3) return "Neither";
+                if(st[0] == '0' && st != "0") return "Neither";
+                for(auto c: st) if(isdigit(c)) continue; else return "Neither"; 
+                int num = stoi(st);
+                if(num < 1 || num > 255) return "Neither";
+            }
+            return "IPv4";
+        }else if(v.size() == 8){
+            for(string st : v){
+                if((int)st.size() == 0) return "Neither";
+                // if(st == "00" || st == "000" || st == "0000") return "Neither";
+                for(auto c : st){
+                    if(!(isdigit(c) || (c>='a'&&c<='f') || (c>='A'&&c<='F'))){
+                        return "Neither";
+                    }
+                }
+            }
+            return "IPv6";
+        }
+        return "Neither";
+    }
+};
+
+int main(){
+    Solution s;
+    string res = s.validIPAddress("192.0.0.1");
+    cout << res << endl;
+    system("pause");
+    return 0;
+}
