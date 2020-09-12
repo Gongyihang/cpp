@@ -59,7 +59,9 @@
         "random": "cpp",
         "bitset": "cpp",
         "complex": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     }, // 默认为false，效果是鼠标选中一块代码后可以单独执行，但C是编译型语言，不适合这样用
 }
 
