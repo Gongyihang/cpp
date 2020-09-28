@@ -7,6 +7,7 @@
 #include <queue>
 #include <cmath>
 using namespace std;
+//最近的公共祖先
 struct TreeNode{
     int val;
     TreeNode *left;
