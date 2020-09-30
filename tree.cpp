@@ -92,7 +92,7 @@ public:
         return ans;
     }
 };
-//先中后三种迭代遍历二叉树
+//先中后三种迭代遍历二叉树参考：https://mp.weixin.qq.com/s/WKg0Ty1_3SZkztpHubZPRg
 class traversal_ite {
 public:
     vector<int> res;                                //保存结果
