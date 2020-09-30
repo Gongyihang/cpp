@@ -14,50 +14,52 @@ struct TreeNode {
     TreeNode* right;
     TreeNode(int x): val(x), left(NULL), right(NULL){}//初值列
 };
-//先序创建一棵树
-void creatpre(TreeNode** root)
-{
-    /*
-  如序列：{1 2 -1 -1 3 -1 -1}表示1结点有2,3两个孩子，2,3结点没有孩子。
-  如序列：{3 5 6 -1 -1 2 7 -1 -1 4 -1 -1 1 9 -1 -1 8 -1 -1}
-  */
-    int val;
-    cin >> val;
-    if (val == -1)
-        root = nullptr;
-    else {
-        *root = new TreeNode(val);
-        creatpre(&((*root)->left));
-        creatpre(&((*root)->right));
-    }
-}
-//后序创建一棵树
-void creatpost(TreeNode** root, vector<int>& t, bool flag)
-{
-    /*
-  如序列：{-1 -1 2 -1 -1 3 1}表示1结点有2,3两个孩子，2,3结点没有孩子。
-  如序列：{-1 -1 6 -1 -1 7 -1 -1 4 2 5 -1 -1 9 -1 -1 8 1 3}
-  */
-    int val;
-    char ch;
-    if (flag) {                                     //flag标记第一次获取二叉树序列
-        while (cin >> val) {
-            t.push_back(val);
-            if ((ch = getchar()) == '\n')
-                break;
+
+//创建二叉树
+class creat_tree {
+public:
+    //先序创建一棵树
+    void creatpre(TreeNode** root)
+    {
+        /*如序列：{1 2 -1 -1 3 -1 -1}表示1结点有2,3两个孩子，2,3结点没有孩子。
+          如序列：{3 5 6 -1 -1 2 7 -1 -1 4 -1 -1 1 9 -1 -1 8 -1 -1}*/
+        int val;
+        cin >> val;
+        if (val == -1)
+            root = nullptr;
+        else {
+            *root = new TreeNode(val);
+            creatpre(&((*root)->left));
+            creatpre(&((*root)->right));
         }
-        flag = false;
     }
-    static int count = t.size();
-    val = t[--count];
-    if (val == -1)
-        root = nullptr;
-    else {
-        *root = new TreeNode(val);
-        creatpost(&((*root)->right), t, flag);
-        creatpost(&((*root)->left), t, flag);
+    //后序创建一棵树
+    void creatpost(TreeNode** root, vector<int>& t, bool flag)
+    {
+        /*如序列：{-1 -1 2 -1 -1 3 1}表示1结点有2,3两个孩子，2,3结点没有孩子。
+          如序列：{-1 -1 6 -1 -1 7 -1 -1 4 2 5 -1 -1 9 -1 -1 8 1 3}*/
+        int val;
+        char ch;
+        if (flag) { //flag标记第一次获取二叉树序列
+            while (cin >> val) {
+                t.push_back(val);
+                if ((ch = getchar()) == '\n')
+                    break;
+            }
+            flag = false;
+        }
+        static int count = t.size();
+        val = t[--count];
+        if (val == -1)
+            root = nullptr;
+        else {
+            *root = new TreeNode(val);
+            creatpost(&((*root)->right), t, flag);
+            creatpost(&((*root)->left), t, flag);
+        }
     }
-}
+};
+
 //先中后三种递归遍历方式
 class traversal_rec {
 public:
@@ -211,12 +213,13 @@ TreeNode* lowc(TreeNode* root, int p, int q)
 
 int main()
 {
+    creat_tree creat;
     TreeNode* root;
     //先序创建二叉树
-    creatpre(&root);
+    creat.creatpre(&root);
     //后序创建二叉树
     // vector<int> tree;
-    // creatpost(&root, tree, true);
+    // creat.creatpost(&root, tree, true);
 
     traversal_rec rec;
     // vector<int> res = rec.preorder(root);
