@@ -16,6 +16,7 @@ struct TreeNode {
 };
 
 //创建二叉树
+//先中->√    先后->×    中后->√
 class creat_tree {
 public:
     //先序创建一棵树
