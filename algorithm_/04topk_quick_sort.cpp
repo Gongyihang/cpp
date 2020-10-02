@@ -4,6 +4,7 @@
 #include <string>
 #include <math.h>
 using namespace std;
+//一航代码
 //small K
 class small_k {
 public:

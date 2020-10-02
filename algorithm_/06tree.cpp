@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 using namespace std;
+//一航代码
 //树节点定义（此处与leetcode定义保持一致）
 struct TreeNode {
     int val;
@@ -166,7 +167,7 @@ public:
         return res;
     }
 };
-
+//层序遍历二叉树
 class level_order {
 public:
     vector<vector<int>> levelOrder(TreeNode* root)
@@ -223,7 +224,7 @@ int main()
     // creat.creatpost(&root, tree, true);
 
     traversal_rec rec;
-    // vector<int> res = rec.preorder(root);
+    vector<int> res = rec.preorder(root);
     // vector<int> res = rec.inorder(root);
     // vector<int> res = rec.posorder(root);
 
@@ -231,11 +232,11 @@ int main()
     // vector<int> res = ite.preorder(root);
     // vector<int> res = ite.inorder(root);
     // vector<int> res = ite.postorder(root);
-    // for (int i = 0; i < (int)res.size(); i++) {
-    //     cout << res[i] << " ";
-    // }
-
-    // level_order level;
+    for (int i = 0; i < (int)res.size(); i++) {//注意最后一个节点输出后面有空格
+        cout << res[i] << " ";
+    }
+    cout << endl;
+    // level_order level;                      //层序输出
     // vector<vector<int>> res = level.levelOrder(root);
     // for(int i = 0;i < (int)res.size();i++){
     //     for(int j = 0;j < (int)res[i].size();j++){
@@ -244,9 +245,9 @@ int main()
     // }
 
     //求二叉树结点p，q最近的公共祖先
-    // int p, q;
-    // cin >> p >> q;
-    // TreeNode *t = lowc(root, p, q);
-    // cout << t->val << endl;
+    int p, q;
+    cin >> p >> q;
+    TreeNode *t = lowc(root, p, q);
+    cout << t->val << endl;
     return 0;
 }

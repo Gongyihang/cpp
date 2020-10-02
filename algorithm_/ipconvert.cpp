@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-
+//一航代码
 class Solution {
 public:
     string validIPAddress(string IP)
@@ -61,7 +61,12 @@ public:
 
 int main()
 {
-
+    Solution s;
+    cout << s.validIPAddress("172.16.254.1") << endl;
+    cout << s.validIPAddress("2001:0db8:85a3:0:0:8A2E:0370:7334") << endl;
+    cout << s.validIPAddress("256.256.256.256") << endl;
+    cout << s.validIPAddress("2001:0db8:85a3:0:0:8A2E:0370:7334:") << endl;
+    cout << s.validIPAddress("1e1.4.5.6") << endl;
     system("pause");
     return 0;
 }

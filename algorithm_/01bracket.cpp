@@ -18,7 +18,7 @@ bool ispair(char a, char b)
         return true;
     return false;
 }
-
+//一航代码
 int main()
 {
     string s = "";
@@ -29,13 +29,13 @@ int main()
         } else {
             stack<char> st;
             for (char c : s) {
-                if (c == '(' || c == '{' || c == '[')       // 判断每一个输入的字符是否为左括号，如果是就压栈
+                if (c == '(' || c == '{' || c == '[') // 判断每一个输入的字符是否为左括号，如果是就压栈
                     st.push(c);
                 else {
                     if (!st.empty() && ispair(st.top(), c)) //注意ispair顺序
-                        st.pop();                           // 如果栈不空，且栈顶元素与当前字符匹配则括号匹配成功，出栈
+                        st.pop(); // 如果栈不空，且栈顶元素与当前字符匹配则括号匹配成功，出栈
                     else
-                        break;                              // 否则，结束，此时栈中不空，后序判断栈非空输出false即可
+                        break; // 否则，结束，此时栈中不空，后序判断栈非空输出false即可
                 }
             }
             if (st.empty())

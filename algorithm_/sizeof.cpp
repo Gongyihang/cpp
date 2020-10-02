@@ -1,29 +1,27 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
-#include <string>
-#include <map>
-#include <stack>
-#include <queue>
 #include <cmath>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <stack>
+#include <string>
+#include <vector>
 using namespace std;
-
-struct A
-{
+//一航代码
+struct A {
 };
-struct B
-{
+struct B {
     char ch;
     int i;
 };
 
-struct C{
+struct C {
     char ch1 = '1';
     char ch2 = '2';
     char ch3 = '3';
 };
 
-struct D{
+struct D {
     char ch1;
     B b;
     char ch2;
@@ -31,11 +29,12 @@ struct D{
 
 //虚函数的sizeof不在乎自己的虚函数有多少个，而在乎在继承的时候，有多少个虚函数指针
 
-int main(){
+int main()
+{
     int a;
-    int arr[] = {1, 2, 3};
+    int arr[] = { 1, 2, 3 };
     int arr_[10];
-    int* arrnew = new int[3]{1, 2, 3}; 
+    int* arrnew = new int[3] { 1, 2, 3 };
     char b;
     char str[] = "hello";
     long c;
@@ -50,11 +49,10 @@ int main(){
     float* l;
     int m[10];
     char n[10];
-    char *o = (char*)malloc(sizeof(char*) * 10);
-    
+    char* o = (char*)malloc(sizeof(char*) * 10);
 
     cout << " 1. sizeof(a) = "
-         << sizeof(a) << "          int a;"<< endl
+         << sizeof(a) << "          int a;" << endl
          << " 2. sizeof(arr) = "
          << sizeof(arr) << "        arr[] = {1, 2, 3};" << endl
          << " 3. sizeof(arr_) = "
@@ -74,7 +72,7 @@ int main(){
          << "10. sizeof(e) = "
          << sizeof(e) << "          double e" << endl
          << "11. sizeof(f) = "
-         << sizeof(f) << "          float f"<< endl
+         << sizeof(f) << "          float f" << endl
          << "12. sizeof(g) = "
          << sizeof(g) << "          int* g" << endl
          << "13. sizeof(h) = "
@@ -88,21 +86,19 @@ int main(){
          << "17. sizeof(l) = "
          << sizeof(l) << "          float* l" << endl
          << "18. sizeof(m) = "
-         << sizeof(m) << "          int m[10]"<< endl
+         << sizeof(m) << "          int m[10]" << endl
          << "19. sizeof(n) = "
          << sizeof(n) << "          char n[10]" << endl
          << "20. sizeof(o) = "
          << sizeof(o) << "          char *o = (char*)malloc(sizeof(char*) * 10)" << endl
          << "21. sizeof(A) = "
-         << sizeof(A) << "          empty"<< endl
+         << sizeof(A) << "          empty" << endl
          << "22. sizeof(B) = "
-         << sizeof(B) << "          one char and one int"<< endl
+         << sizeof(B) << "          one char and one int" << endl
          << "23. sizeof(C) = "
-         << sizeof(C) << "          three char"<< endl
+         << sizeof(C) << "          three char" << endl
          << "24. sizeof(D) = "
          << sizeof(D) << "          two char and one struct" << endl;
-
-         
     system("pause");
     return 0;
 }
