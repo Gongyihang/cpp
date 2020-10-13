@@ -114,7 +114,7 @@ public:
                 call.push(t);                       //当前节点重新压栈（留着以后处理），因为先序遍历所以最后压栈
                 call.push(nullptr);                 //在当前节点之前加入一个空节点表示已经访问过了
             } else {                                //空节点表示之前已经访问过了，现在需要处理除了递归之外的内容
-                res.push_back(call.top()->val);     // call.top()是nullptr之前压栈的一个节点，也就是上面call.push(t)中的那个t
+                res.push_back(call.top()->val);     //call.top()是nullptr之前压栈的一个节点，也就是上面call.push(t)中的那个t
                 call.pop();                         //处理完了，第二次弹出节点（彻底从栈中移除）
             }
         }

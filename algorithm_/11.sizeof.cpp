@@ -5,6 +5,7 @@
 #include <queue>
 #include <stack>
 #include <string>
+#include <string.h>
 #include <vector>
 using namespace std;
 //一航代码
@@ -31,7 +32,7 @@ struct D {
 
 int main()
 {
-    int a;
+    int a = 10;
     int arr[] = { 1, 2, 3 };
     int arr_[10];
     int* arrnew = new int[3] { 1, 2, 3 };
